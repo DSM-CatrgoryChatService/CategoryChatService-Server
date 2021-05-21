@@ -1,2 +1,0 @@
-com/example/chat_example_with_socketio/ChatExampleWithSocketioApplicationTests.java
- com.example.chat_example_with_socketio.ChatExampleWithSocketioApplicationTests
