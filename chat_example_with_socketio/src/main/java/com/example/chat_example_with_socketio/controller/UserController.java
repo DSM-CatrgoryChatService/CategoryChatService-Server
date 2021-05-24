@@ -22,6 +22,11 @@ public class UserController {
     }
 
     @GetMapping(value = "/image/{imageName}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_GIF_VALUE})
+    public byte[] getBackground(@PathVariable String imageName) {
+        return userService.getBackground(imageName);
+    }
+
+    @GetMapping(value = "/image/{imageName}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_GIF_VALUE})
     public byte[] getUserImage(@PathVariable String imageName){
         return userService.getUserImage(imageName);
     }

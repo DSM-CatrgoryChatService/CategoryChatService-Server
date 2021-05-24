@@ -11,4 +11,5 @@ public interface UserService {
     void updateBackgroundImage(MultipartFile background, String token);
     void setBackground(MultipartFile background, String id);
     UserInfoResponse getMyInfo(String token);
+    byte[] getBackground(String imageName);
 }

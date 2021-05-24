@@ -51,6 +51,15 @@ public class UserServiceImpl implements UserService {
 
     @SneakyThrows
     @Override
+    public byte[] getBackground(String imageName) {
+        backgroundImageRepository.findByImageName(imageName)
+                .orElseThrow(UserImageNotFoundException::new);
+
+        return imageResponse.getUserImage(imageName, imageDir);
+    }
+
+    @SneakyThrows
+    @Override
     public void setBackground(MultipartFile background, String id) {
         User user = userRepository.findById(id)
                 .orElseThrow(UserNotFoundException::new);
@@ -135,6 +144,8 @@ public class UserServiceImpl implements UserService {
                         .token(signUpRequest.getUserDeviceToken())
                         .build()
         );
+
+
 
         if(signUpRequest.getImage().isEmpty()) {
             userImageRepository.save(
